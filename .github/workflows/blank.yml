@@ -17,5 +17,6 @@ jobs:
          ./lede/scripts/feeds update -a
          ./lede/scripts/feeds install -a
          make -j8 download V=s
-      - name: make
+      - name: make menuconfig
+        run: |
          make -j1 V=s
