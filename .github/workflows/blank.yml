@@ -18,4 +18,5 @@ jobs:
          ./lede/scripts/feeds install -a
       - name: make menuconfig
         run: |
+         cd lede
          make -j1 V=s
