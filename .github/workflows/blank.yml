@@ -16,3 +16,6 @@ jobs:
          git clone https://github.com/coolsnowwolf/lede
          ./lede/scripts/feeds update -a
          ./lede/scripts/feeds install -a
+         make -j8 download V=s
+      - name: make
+         make -j1 V=s
