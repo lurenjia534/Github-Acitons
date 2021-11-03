@@ -10,13 +10,6 @@ jobs:
         with:
           node-version: '16.3.0'
           architecture: 'x64'
-    name: Python3.8.10
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.8.10'
-          architecture: 'x64'
     name: Python 3.8.10
     run: |
       python -c "import sys; print(sys.version)"
