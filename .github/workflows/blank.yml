@@ -9,8 +9,8 @@ jobs:
       - uses: actions/setup-node@v2
         with: 
           node-version: '14'
-      - name: Setup upterm session
-        uses: lhotari/action-upterm@v1
+      - name: Start SSH via tmate
+      - uses: P3TERX/ssh2actions@main
       - name: openwrt lede
         run: |
          sudo apt-get update
