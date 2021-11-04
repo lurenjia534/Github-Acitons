@@ -10,4 +10,5 @@ jobs:
         with:
           node-version: '14'
           python-version: '3.8.10'
-      - run: python -c "import sys; print(sys.version)"
+      - name: Python -v
+        run: python -c "import sys; print(sys.version)"
