@@ -6,11 +6,7 @@ jobs:
     steps:
       - name: 初始化
       - uses: actions/checkout@v2
-      - name: Python3.8.10环境
-      - uses: actions/setup-python@v2
         with:
-          python-version: '3.8.10'
-          architecture: 'x64'
       - name: Git clone lede
         run: |
           sudo apt update
