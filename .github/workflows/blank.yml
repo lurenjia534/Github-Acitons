@@ -12,7 +12,7 @@ jobs:
           git clone https://gitee.com/ix64/unlock-music
           cd unlock-music/
       - name: npm build
-      - run: |
+        run: |
           npm install
           npm run build
           cd dist/
