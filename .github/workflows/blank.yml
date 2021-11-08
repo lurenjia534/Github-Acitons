@@ -17,9 +17,11 @@ jobs:
           npm install
           npm run build
           cd dist/
-      - name: Update Release
-        uses: johnwbyrd/update-release@v1.0.0
+      - name: Release
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "v0.0.1"
           prerelease: false
-          token: ${{ secrets.GITHUB_TOKEN }}
-          files: ./unlock-music/dist
+          files: |
+            dist/*
