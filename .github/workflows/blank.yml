@@ -17,5 +17,6 @@ jobs:
       - name: Update Release
         uses: johnwbyrd/update-release@v1.0.0
         with:
+          prerelease: false
           token: ${{ secrets.GITHUB_TOKEN }}
           files: ./unlock-music/dist
