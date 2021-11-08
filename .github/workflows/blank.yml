@@ -13,6 +13,7 @@ jobs:
           cd unlock-music/
       - name: npm build
         run: |
+          cd unlock-music/
           npm install
           npm run build
           cd dist/
