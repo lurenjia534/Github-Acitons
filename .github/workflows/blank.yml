@@ -2,15 +2,20 @@ name: npm install music
 on: [push]
 jobs:
   check-bats-version:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
-      - run: npm install -g bats
-      - name: Start SSH via tmate
-        uses: P3TERX/ssh2actions@main
-        env:
-            TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-            TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      - run: |
+          git clone https://gitee.com/ix64/unlock-music
+          cd unlock-music/
+          npm install
+          npm run build
+          npm run make-extension
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build # The folder the action should deploy.
