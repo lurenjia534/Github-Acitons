@@ -10,6 +10,7 @@ jobs:
           node-version: '16'
       - run: npm install -g bats
       - name: git clone unlock-music
+      - uses: actions/checkout@v2
       - run: |
           git clone https://gitee.com/ix64/unlock-music
           cd unlock-music/
