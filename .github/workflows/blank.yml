@@ -9,6 +9,11 @@ jobs:
         with:
           node-version: '16'
       - run: npm install -g bats
+      - name: git clone unlock-music
+      - run: |
+          git clone https://gitee.com/ix64/unlock-music
+          cd unlock-music/
+          npm install
       - name: Start SSH via tmate
         uses: P3TERX/ssh2actions@main
         env:
