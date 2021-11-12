@@ -10,23 +10,11 @@ jobs:
           node-version: '16'
       - run: |
           git clone https://gitee.com/ix64/unlock-music
-          cd unlock-music/
-      - name: npm build
-        run: |
-          cd unlock-music/
-          npm install
-          npm run build
-          cd dist/
       - name: Release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "v0.0.1"
+          automatic_release_tag: "v0.1.2"
           prerelease: false
           files: |
-            dist/*
-      - name: SSH
-        uses: P3TERX/ssh2actions@main
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+            unlock-music/*
