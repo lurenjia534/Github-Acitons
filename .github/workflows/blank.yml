@@ -1,5 +1,5 @@
 name: npm install music
-on: [push]
+on: [push,workflow_dispatch]
 jobs:
   check-bats-version:
     runs-on: ubuntu-18.04
