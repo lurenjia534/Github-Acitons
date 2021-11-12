@@ -10,7 +10,7 @@ jobs:
           node-version: '16'
       - run: |
           git clone https://gitee.com/ix64/unlock-music
-          tar -zcvf /unlock-music unlock-music.tar.gz
+          tar -zcvf ./unlock-music unlock-music.tar.gz
       - name: Release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
