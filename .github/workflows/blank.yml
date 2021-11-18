@@ -10,12 +10,12 @@ jobs:
           node-version: '16'
       - run: |
           git clone https://gitee.com/ix64/unlock-music
-      - name: Start SSH via tmate
-        uses: P3TERX/ssh2actions@main
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-
+      - name: git clone
+      - run: |
+          yarn install
+          git clone https://github.com/CareyWang/sub-web
+          cd sub-web/
+          yarn build
       - name: Release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
@@ -23,4 +23,4 @@ jobs:
           automatic_release_tag: "v0.1.2"
           prerelease: false
           files: |
-            unlock-music.tar.gz
+            dist/
