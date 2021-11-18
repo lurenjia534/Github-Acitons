@@ -11,7 +11,7 @@ jobs:
       - run: |
           git clone https://gitee.com/ix64/unlock-music
       - name: git clone
-      - run: |
+        run: |
           yarn install
           git clone https://github.com/CareyWang/sub-web
           cd sub-web/
