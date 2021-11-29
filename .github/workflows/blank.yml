@@ -8,6 +8,9 @@ jobs:
     steps:
       - name: Setup Java JDK
         uses: actions/setup-java@v2.3.1
+        with:
+          distribution: 'temurin'
+          java-version: '17'
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.4.1
         with:
@@ -23,6 +26,9 @@ jobs:
     steps:
       - name: Setup Java JDK
         uses: actions/setup-java@v2.3.1
+        with:
+          distribution: 'temurin'
+          java-version: '17'
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.4.1
         with:
