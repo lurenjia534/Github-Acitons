@@ -4,7 +4,7 @@ on: workflow_dispatch
 
 jobs:
   build-x86:
-    runs-on: ubuntu-20.4
+    runs-on: ubuntu-18.4
     steps:
       - name: Setup Java JDK
         uses: actions/setup-java@v2.3.1
@@ -19,7 +19,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
   build-ARM:
-    runs-on: ubuntu-20.4
+    runs-on: ubuntu-18.4
     steps:
       - name: Setup Java JDK
         uses: actions/setup-java@v2.3.1
