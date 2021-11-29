@@ -1,24 +1,35 @@
-name: npm install music
-on: [push,workflow_dispatch]
+name: Openwrt-Ci/CD
+
+on: workflow_dispatch
+
 jobs:
-  check-bats-version:
-    runs-on: ubuntu-18.04
+  build-x86:
+    runs-on: ubuntu-20.4
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Setup Java JDK
+        uses: actions/setup-java@v2.3.1
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.4.1
         with:
-          node-version: '16'
-      - name: git clone
-        run: |
-          yarn install
-          git clone https://github.com/CareyWang/sub-web
-          cd sub-web/
-          yarn build
-      - name: Release
-        uses: "marvinpinto/action-automatic-releases@latest"
+          node-version: '14'
+          cache: 'npm'
+      - name: Start SSH via tmate
+        uses: P3TERX/ssh2actions@main
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+  build-ARM:
+    runs-on: ubuntu-20.4
+    steps:
+      - name: Setup Java JDK
+        uses: actions/setup-java@v2.3.1
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.4.1
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "v0.1.2"
-          prerelease: false
-          files: |
-            dist/
+          node-version: '14'
+          cache: 'npm'
+      - name: Start SSH via tmate
+        uses: P3TERX/ssh2actions@main
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
