@@ -15,7 +15,6 @@ jobs:
         uses: actions/setup-node@v2.4.1
         with:
           node-version: '14'
-          cache: 'npm'
       - name: Start SSH via tmate
         uses: P3TERX/ssh2actions@main
         env:
@@ -33,7 +32,6 @@ jobs:
         uses: actions/setup-node@v2.4.1
         with:
           node-version: '14'
-          cache: 'npm'
       - name: Start SSH via tmate
         uses: P3TERX/ssh2actions@main
         env:
